@@ -306,8 +306,8 @@ p {
     left: 50%;
     top: 50%;
 
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: auto;
 
     transform: translate(-50%, -50%);
 
@@ -319,17 +319,15 @@ p {
 }
 
 
-/* Круг, по которому движется надпись */
+/* Надпись над розовой точкой */
 
 .open-content {
     position: absolute;
 
-    width: 100%;
-    height: 100%;
+    left: 50%;
+    top: -75px;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    transform: translateX(-50%);
 
     font-size: 22px;
     font-weight: bold;
@@ -337,34 +335,17 @@ p {
     color: #e85d83;
 
     white-space: nowrap;
-
-    animation: textOrbit 7s linear infinite;
 }
 
 
-/* Убираем стрелку */
+/* Стрелка больше не нужна */
 
 .arrow {
     display: none;
 }
 
 
-/* Вращение надписи вокруг розовой точки */
-
-@keyframes textOrbit {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* Небольшое вертикальное движение
-   синхронное с конвертом */
+/* Движение вместе с конвертом */
 
 @keyframes textFloating {
 
@@ -380,7 +361,6 @@ p {
             translateY(-10px);
     }
 }
-
 /* =========================
    ПРИГЛАШЕНИЕ
 ========================= */
