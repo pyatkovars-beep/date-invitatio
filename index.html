@@ -18,6 +18,12 @@
    ОСНОВНЫЕ НАСТРОЙКИ
 ========================= */
 
+
+
+.arrow {
+    font-size: 45px;
+}
+    
 * {
     box-sizing: border-box;
     margin: 0;
@@ -179,6 +185,8 @@ p {
         30px auto
         10px;
 
+    position: relative;
+
     cursor: pointer;
 
     animation:
@@ -292,9 +300,84 @@ p {
 
 .open-text {
 
-    margin-top: 20px;
+    position: absolute;
 
-    font-size: 24px;
+    left: 50%;
+    top: 50%;
+
+    width: 360px;
+    height: 360px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 0;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #e85d83;
+
+    pointer-events: none;
+
+    animation:
+        orbit
+        5s
+        linear
+        infinite;
+}
+
+
+/* Красная широкая стрелка */
+
+.arrow {
+
+    display: block;
+
+    margin-left: 8px;
+
+    margin-top: -5px;
+
+    font-size: 52px;
+
+    font-weight: bold;
+
+    color: #e85d83;
+
+    line-height: 0.7;
+
+    transform:
+        scaleX(1.6);
+
+    text-shadow:
+        0 3px 8px
+        rgba(232,93,131,0.35);
+}
+
+
+/* Движение вокруг конверта */
+
+@keyframes orbit {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
 }
 
 
@@ -302,20 +385,35 @@ p {
 
     display: block;
 
-    font-size: 36px;
+    margin-left: 10px;
 
-    animation:
-        arrowBounce
-        1.1s
-        infinite;
+    font-size: 55px;
+
+    font-weight: bold;
+
+    color: #e85d83;
+
+    line-height: 0.7;
+
+    transform: scaleX(1.8);
+
+    text-shadow:
+        0 3px 8px rgba(232,93,131,0.35);
 }
 
 
-@keyframes arrowBounce {
+@keyframes orbit {
 
-    50% {
+    from {
         transform:
-            translateY(10px);
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
     }
 }
 
@@ -472,6 +570,12 @@ p {
 
 button {
 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+
     border: none;
 
     padding:
@@ -512,6 +616,13 @@ button:hover {
    ФИНАЛЬНЫЙ ЭКРАН
 ========================= */
 
+#celebration,
+#celebration * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
 #celebration {
 
     position: fixed;
@@ -707,6 +818,19 @@ button:hover {
 ========================= */
 
 @media(max-width:600px) {
+
+        .open-text {
+
+        width: 300px;
+        height: 300px;
+
+        font-size: 19px;
+    }
+
+    .arrow {
+
+        font-size: 44px;
+    }
 
     .card {
 
