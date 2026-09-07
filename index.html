@@ -20,9 +20,7 @@
 
 
 
-.arrow {
-    font-size: 45px;
-}
+
     
 * {
     box-sizing: border-box;
@@ -298,82 +296,101 @@ p {
 }
 
 
-.open-text {
+/* =========================
+   НАДПИСЬ ВОКРУГ КОНВЕРТА
+========================= */
 
+.open-text {
     position: absolute;
 
     left: 50%;
     top: 50%;
 
-    width: 360px;
-    height: 360px;
+    width: 420px;
+    height: 420px;
 
-    transform:
-        translate(-50%, -50%);
-
-    display: flex;
-
-    align-items: flex-start;
-    justify-content: center;
-
-    padding-top: 0;
-
-    font-size: 22px;
-
-    font-weight: bold;
-
-    color: #e85d83;
+    transform: translate(-50%, -50%);
 
     pointer-events: none;
 
+    z-index: 5;
+
     animation:
         orbit
-        5s
+        6s
         linear
         infinite;
 }
 
 
-/* Красная широкая стрелка */
+/* Текст и стрелка */
 
-.arrow {
+.open-content {
+    position: absolute;
 
-    display: block;
+    left: 50%;
+    top: 0;
 
-    margin-left: 8px;
+    transform: translateX(-50%);
 
-    margin-top: -5px;
+    display: flex;
 
-    font-size: 52px;
+    align-items: center;
+
+    white-space: nowrap;
+
+    font-size: 24px;
 
     font-weight: bold;
 
     color: #e85d83;
 
-    line-height: 0.7;
-
-    transform:
-        scaleX(1.6);
-
     text-shadow:
-        0 3px 8px
-        rgba(232,93,131,0.35);
+        0 2px 6px
+        rgba(232,93,131,0.25);
+
+    animation:
+        counterOrbit
+        6s
+        linear
+        infinite;
 }
 
 
-/* Движение вокруг конверта */
+/* Большая широкая красная стрелка */
+
+.arrow {
+    display: inline-block;
+
+    margin-left: 14px;
+
+    font-size: 65px;
+
+    font-weight: bold;
+
+    line-height: 0.5;
+
+    color: #e85d83;
+
+    transform: scaleX(2.2);
+
+    text-shadow:
+        0 4px 10px
+        rgba(232,93,131,0.45);
+}
+
+
+/* Вращение вокруг конверта */
 
 @keyframes orbit {
 
     0% {
-
         transform:
             translate(-50%, -50%)
             rotate(0deg);
     }
 
     100% {
-
         transform:
             translate(-50%, -50%)
             rotate(360deg);
@@ -381,39 +398,20 @@ p {
 }
 
 
-.arrow {
+/* Надпись остаётся ровной */
 
-    display: block;
+@keyframes counterOrbit {
 
-    margin-left: 10px;
-
-    font-size: 55px;
-
-    font-weight: bold;
-
-    color: #e85d83;
-
-    line-height: 0.7;
-
-    transform: scaleX(1.8);
-
-    text-shadow:
-        0 3px 8px rgba(232,93,131,0.35);
-}
-
-
-@keyframes orbit {
-
-    from {
+    0% {
         transform:
-            translate(-50%, -50%)
+            translateX(-50%)
             rotate(0deg);
     }
 
-    to {
+    100% {
         transform:
-            translate(-50%, -50%)
-            rotate(360deg);
+            translateX(-50%)
+            rotate(-360deg);
     }
 }
 
@@ -819,18 +817,18 @@ button:hover {
 
 @media(max-width:600px) {
 
-        .open-text {
+.open-text {
+    width: 320px;
+    height: 320px;
+}
 
-        width: 300px;
-        height: 300px;
+.open-content {
+    font-size: 19px;
+}
 
-        font-size: 19px;
-    }
-
-    .arrow {
-
-        font-size: 44px;
-    }
+.arrow {
+    font-size: 48px;
+}
 
     .card {
 
@@ -1001,17 +999,19 @@ button:hover {
             </div>
 
 
-            <div class="open-text">
+           <div class="open-text">
 
-                открой
+    <div class="open-content">
 
-                <span class="arrow">
+        открой
 
-                    ↓
+        <span class="arrow">
+            ↓
+        </span>
 
-                </span>
+    </div>
 
-            </div>
+</div>
 
         </div>
 
