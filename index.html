@@ -297,7 +297,7 @@ p {
 
 
 /* =========================
-   НАДПИСЬ ВОКРУГ КОНВЕРТА
+   НАДПИСЬ ВОКРУГ СЕРДЕЧКА
 ========================= */
 
 .open-text {
@@ -306,8 +306,8 @@ p {
     left: 50%;
     top: 50%;
 
-    width: 420px;
-    height: 420px;
+    width: 250px;
+    height: 250px;
 
     transform: translate(-50%, -50%);
 
@@ -315,106 +315,71 @@ p {
 
     z-index: 5;
 
-    animation:
-        orbit
-        6s
-        linear
-        infinite;
+    animation: textFloating 2.5s ease-in-out infinite;
 }
 
 
-/* Текст и стрелка */
+/* Круг, по которому движется надпись */
 
 .open-content {
     position: absolute;
 
-    left: 50%;
-    top: 0;
-
-    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
 
     display: flex;
+    align-items: flex-start;
+    justify-content: center;
 
-    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+
+    color: #e85d83;
 
     white-space: nowrap;
 
-    font-size: 24px;
-
-    font-weight: bold;
-
-    color: #e85d83;
-
-    text-shadow:
-        0 2px 6px
-        rgba(232,93,131,0.25);
-
-    animation:
-        counterOrbit
-        6s
-        linear
-        infinite;
+    animation: textOrbit 7s linear infinite;
 }
 
 
-/* Большая широкая красная стрелка */
+/* Убираем стрелку */
 
 .arrow {
-    display: inline-block;
-
-    margin-left: 14px;
-
-    font-size: 65px;
-
-    font-weight: bold;
-
-    line-height: 0.5;
-
-    color: #e85d83;
-
-    transform: scaleX(2.2);
-
-    text-shadow:
-        0 4px 10px
-        rgba(232,93,131,0.45);
+    display: none;
 }
 
 
-/* Вращение вокруг конверта */
+/* Вращение надписи вокруг розовой точки */
 
-@keyframes orbit {
+@keyframes textOrbit {
 
-    0% {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Небольшое вертикальное движение
+   синхронное с конвертом */
+
+@keyframes textFloating {
+
+    0%, 100% {
         transform:
             translate(-50%, -50%)
-            rotate(0deg);
+            translateY(0);
     }
 
-    100% {
+    50% {
         transform:
             translate(-50%, -50%)
-            rotate(360deg);
+            translateY(-10px);
     }
 }
-
-
-/* Надпись остаётся ровной */
-
-@keyframes counterOrbit {
-
-    0% {
-        transform:
-            translateX(-50%)
-            rotate(0deg);
-    }
-
-    100% {
-        transform:
-            translateX(-50%)
-            rotate(-360deg);
-    }
-}
-
 
 /* =========================
    ПРИГЛАШЕНИЕ
@@ -818,16 +783,12 @@ button:hover {
 @media(max-width:600px) {
 
 .open-text {
-    width: 320px;
-    height: 320px;
+    width: 210px;
+    height: 210px;
 }
 
 .open-content {
-    font-size: 19px;
-}
-
-.arrow {
-    font-size: 48px;
+    font-size: 18px;
 }
 
     .card {
@@ -999,18 +960,10 @@ button:hover {
             </div>
 
 
-           <div class="open-text">
-
+<div class="open-text">
     <div class="open-content">
-
         открой
-
-        <span class="arrow">
-            ↓
-        </span>
-
     </div>
-
 </div>
 
         </div>
