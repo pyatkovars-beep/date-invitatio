@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Для тебя 💌</title>
+
+<style>
+
+/* =========================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    --pink: #e85d83;
+    --dark-pink: #8d2948;
+
+    --light-pink: #ffe8ef;
+
+    --cream: #fff9f6;
+
+    --text: #542537;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 10%,
+            #ffffff 0,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #ffdce8 0,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff7f9,
+            #ffeaf0,
+            #fff9f5
+        );
+}
+
+
+/* =========================
+   ЭКРАН
+========================= */
+
+.screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    position: relative;
+}
+
+
+.card {
+
+    width: min(680px, 100%);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.80);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.9);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(100,30,55,0.15);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.small {
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.65;
+}
+
+
+h1 {
+
+    margin: 15px 0;
+
+    font-size:
+        clamp(36px, 8vw, 60px);
+
+    line-height: 1.1;
+}
+
+
+p {
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ПИСЬМО
+========================= */
+
+.letter-wrapper {
+
+    width: min(430px, 90%);
+
+    margin:
+        30px auto
+        10px;
+
+    cursor: pointer;
+
+    animation:
+        floating
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes floating {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+.envelope {
+
+    height: 230px;
+
+    position: relative;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #ffe9ef
+        );
+
+    border:
+        2px solid
+        #e9adbd;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 40px
+        rgba(150,50,80,0.12);
+}
+
+
+.envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            transparent 49%,
+            rgba(200,90,120,0.25) 50%,
+            transparent 51%
+        ),
+
+        linear-gradient(
+            215deg,
+            transparent 49%,
+            rgba(200,90,120,0.25) 50%,
+            transparent 51%
+        );
+}
+
+
+.seal {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 30px;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 10px 25px
+        rgba(200,70,110,0.30);
+}
+
+
+.open-text {
+
+    margin-top: 20px;
+
+    font-size: 24px;
+}
+
+
+.arrow {
+
+    display: block;
+
+    font-size: 36px;
+
+    animation:
+        arrowBounce
+        1.1s
+        infinite;
+}
+
+
+@keyframes arrowBounce {
+
+    50% {
+        transform:
+            translateY(10px);
+    }
+}
+
+
+/* =========================
+   ПРИГЛАШЕНИЕ
+========================= */
+
+.invitation {
+
+    font-size: 18px;
+}
+
+
+.details {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+
+.detail {
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background:
+        #fff4f7;
+
+    border:
+        1px solid
+        #f2c5d1;
+}
+
+
+.detail b {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        var(--pink);
+}
+
+
+/* =========================
+   ОТПЕЧАТОК
+========================= */
+
+.fingerprint-container {
+
+    margin-top: 25px;
+}
+
+
+.fingerprint {
+
+    width: 125px;
+    height: 125px;
+
+    margin: 20px auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 55px;
+
+    background:
+        #fff0f4;
+
+    border:
+        2px dashed
+        var(--pink);
+
+    cursor: pointer;
+
+    user-select: none;
+
+    touch-action: none;
+
+    transition:
+        0.2s;
+
+    box-shadow:
+        0 0 0
+        rgba(232,93,131,0);
+}
+
+
+.fingerprint:active {
+
+    transform:
+        scale(0.94);
+}
+
+
+.progress-container {
+
+    width:
+        min(340px,90%);
+
+    height: 8px;
+
+    margin: 15px auto;
+
+    background:
+        #f1d3dc;
+
+    border-radius:
+        100px;
+
+    overflow: hidden;
+}
+
+
+.progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        var(--pink);
+
+    transition:
+        width 0.05s linear;
+}
+
+
+.status {
+
+    font-size: 14px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   КНОПКА
+========================= */
+
+button {
+
+    border: none;
+
+    padding:
+        14px 24px;
+
+    border-radius:
+        100px;
+
+    color: white;
+
+    background:
+        var(--pink);
+
+    font-family:
+        inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(200,70,110,0.25);
+
+    transition:
+        0.2s;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   ФИНАЛЬНЫЙ ЭКРАН
+========================= */
+
+#celebration {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.96),
+            rgba(255,210,225,0.96),
+            rgba(130,35,70,0.96)
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.6s;
+}
+
+
+#celebration.show {
+
+    opacity: 1;
+
+    pointer-events:
+        auto;
+}
+
+
+.celebration-card {
+
+    width:
+        min(560px,100%);
+
+    padding:
+        45px 25px;
+
+    text-align:
+        center;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    border-radius:
+        35px;
+
+    box-shadow:
+        0 40px 100px
+        rgba(50,10,30,0.35);
+
+    transform:
+        scale(0.6)
+        rotate(-5deg);
+
+    transition:
+        transform
+        0.8s
+        cubic-bezier(.17,.89,.32,1.3);
+}
+
+
+#celebration.show
+.celebration-card {
+
+    transform:
+        scale(1)
+        rotate(0);
+}
+
+
+.big-heart {
+
+    font-size: 95px;
+
+    animation:
+        heartbeat
+        1s
+        infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.18);
+    }
+}
+
+
+.celebration-card h2 {
+
+    font-size:
+        clamp(35px,8vw,58px);
+
+    margin:
+        15px 0;
+}
+
+
+.celebration-card p {
+
+    font-size: 19px;
+
+    margin-bottom:
+        25px;
+}
+
+
+/* =========================
+   КОНФЕТТИ
+========================= */
+
+#confetti {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 110;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   СЕРДЕЧКИ
+========================= */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    z-index: 120;
+
+    font-size: 25px;
+
+    animation:
+        heartRise
+        4s
+        linear
+        forwards;
+
+    pointer-events: none;
+}
+
+
+@keyframes heartRise {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   МОБИЛЬНЫЕ
+========================= */
+
+@media(max-width:600px) {
+
+    .card {
+
+        padding:
+            30px 18px;
+    }
+
+    .details {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .envelope {
+
+        height:
+            190px;
+    }
+
+    h1 {
+
+        font-size:
+            38px;
+    }
+}
+
+/* =========================
+   АНИМАЦИЯ ОТКРЫТИЯ ПИСЬМА
+========================= */
+
+.letter-wrapper.opening {
+    animation: none;
+}
+
+.letter-wrapper.opening .envelope {
+    animation: envelopeOpen 1.4s ease-in-out forwards;
+}
+
+.letter-wrapper.opening .seal {
+    animation: sealDisappear 0.5s ease forwards;
+}
+
+.letter-wrapper.opening .open-text {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@keyframes envelopeOpen {
+
+    0% {
+        transform: scale(1) rotate(0);
+    }
+
+    30% {
+        transform: scale(1.03) rotate(-1deg);
+    }
+
+    60% {
+        transform: scale(1.05) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1.08) rotate(0);
+    }
+}
+
+@keyframes sealDisappear {
+
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+.welcome-fade {
+    animation: welcomeFade 0.8s ease forwards;
+}
+
+@keyframes welcomeFade {
+
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+}
+
+.invitation-show {
+    animation: invitationShow 1s ease forwards;
+}
+
+@keyframes invitationShow {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===================================
+     ПЕРВЫЙ ЭКРАН
+=================================== -->
+
+<section
+    id="welcome"
+    class="screen"
+>
+
+    <div class="card">
+
+        <div class="small">
+
+            для одной особенной девушки
+
+        </div>
+
+
+        <h1>
+
+            Привет, Принцесса 💗
+
+        </h1>
+
+
+        <p>
+
+            Я приготовил для тебя кое-что
+            маленькое, тёплое и очень приятное...
+
+        </p>
+
+
+        <div
+            class="letter-wrapper"
+            onclick="openLetter()"
+        >
+
+            <div class="envelope">
+
+                <div class="seal">
+
+                    ♥
+
+                </div>
+
+            </div>
+
+
+            <div class="open-text">
+
+                открой
+
+                <span class="arrow">
+
+                    ↓
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================
+     ПРИГЛАШЕНИЕ
+=================================== -->
+
+<section
+    id="invitation"
+    class="screen hidden"
+>
+
+    <div class="card">
+
+        <div class="small">
+
+            личное приглашение 💌
+
+        </div>
+
+
+        <h1>
+
+            Пойдём смотреть фильм? 🍿
+
+        </h1>
+
+
+        <div class="invitation">
+
+            <p>
+
+                Я хочу пригласить тебя ко мне
+                на уютный вечер: выбрать хороший
+                фильм, набрать вкусняшек и просто
+                провести время вдвоём. ✨
+
+            </p>
+
+
+            <div class="details">
+
+
+                <div class="detail">
+
+                    <b>
+                        Когда
+                    </b>
+
+                    7 сентября<br>
+                    20:30
+
+                </div>
+
+
+                <div class="detail">
+
+                    <b>
+                        Где
+                    </b>
+
+                    У меня дома 🏠
+
+                </div>
+
+
+            </div>
+
+
+            <p>
+
+                Если ты согласна —
+                подтверди приглашение ниже.
+
+                <br><br>
+
+                Обещаю плед,
+                вкусняшки и хорошее настроение. 🤍
+
+            </p>
+
+        </div>
+
+
+        <!-- ОТПЕЧАТОК -->
+
+        <div class="fingerprint-container">
+
+            <div class="small">
+
+                удерживай 3 секунды
+
+            </div>
+
+
+            <div
+                id="fingerprint"
+                class="fingerprint"
+            >
+
+                ☝️
+
+            </div>
+
+
+            <div
+                class="progress-container"
+            >
+
+                <div
+                    id="progress"
+                    class="progress"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="status"
+                class="status"
+            >
+
+                Нажми и удерживай 💗
+
+            </div>
+
+        </div>
+
+
+        <p
+            id="success"
+            class="hidden"
+            style="margin-top:20px"
+        >
+
+            <b>
+
+                Приглашение подтверждено 💞
+
+            </b>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================
+     ФИНАЛ
+=================================== -->
+
+<div id="celebration">
+
+
+    <canvas
+        id="confetti"
+    ></canvas>
+
+
+    <div class="celebration-card">
+
+
+        <div class="big-heart">
+
+            💗
+
+        </div>
+
+
+        <h2>
+
+            Ура! Ты согласна!
+
+        </h2>
+
+
+        <p>
+
+            Кажется, у нас намечается
+            очень уютный вечер.
+
+            <br><br>
+
+            Теперь осталось самое важное —
+
+            <br>
+
+            выбрать фильм 🍿🎬
+
+        </p>
+
+
+        <button
+            onclick="closeCelebration()"
+        >
+
+            Продолжить →
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* ===================================
+   НАСТРОЙКА УВЕДОМЛЕНИЯ
+=================================== */
+
+/*
+   СЮДА ПОТОМ ВСТАВИМ URL
+   GOOGLE APPS SCRIPT.
+
+   Например:
+
+   const NOTIFICATION_URL =
+       "https://script.google.com/macros/s/ABC.../exec";
+*/
+
+
+const NOTIFICATION_URL = 
+    "https://script.google.com/macros/s/AKfycbxLAlAAycklNWXYDJFA6HqjDXo4KStK6nRM2efibJgvZTyIYpA7c1RE4w_IZSNSB80/exec";
+
+
+
+/* ===================================
+   ОТКРЫТИЕ ПИСЬМА
+=================================== */
+
+function openLetter() {
+
+    const welcome =
+        document.getElementById("welcome");
+
+    const invitation =
+        document.getElementById("invitation");
+
+    const letter =
+        document.querySelector(".letter-wrapper");
+
+
+    // Не даём открыть письмо несколько раз
+    if (letter.classList.contains("opening")) {
+        return;
+    }
+
+
+    // Начинаем красивую анимацию
+    letter.classList.add("opening");
+
+
+    // Через 1.2 секунды начинаем исчезновение первого экрана
+    setTimeout(() => {
+
+        welcome.classList.add("welcome-fade");
+
+    }, 1000);
+
+
+    // После анимации показываем приглашение
+    setTimeout(() => {
+
+        welcome.classList.add("hidden");
+
+        welcome.classList.remove("welcome-fade");
+
+
+        invitation.classList.remove("hidden");
+
+        invitation.classList.add("invitation-show");
+
+
+        window.scrollTo(0, 0);
+
+    }, 1700);
+
+}
+
+
+/* ===================================
+   ОТПЕЧАТОК
+=================================== */
+
+const fingerprint =
+    document.getElementById(
+        "fingerprint"
+    );
+
+
+const progress =
+    document.getElementById(
+        "progress"
+    );
+
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+
+let startTime = 0;
+
+let animationFrame = null;
+
+let confirmed = false;
+
+
+
+/* начало */
+
+function startHold(event) {
+
+    if (confirmed)
+        return;
+
+
+    event.preventDefault();
+
+
+    startTime =
+        performance.now();
+
+
+    status.textContent =
+        "Держи... 💗";
+
+
+    fingerprint.style.boxShadow =
+        "0 0 0 12px rgba(232,93,131,0.12)";
+
+
+    animationFrame =
+        requestAnimationFrame(
+            updateProgress
+        );
+
+}
+
+
+
+/* прогресс */
+
+function updateProgress(time) {
+
+    const elapsed =
+        time - startTime;
+
+
+    const percent =
+        Math.min(
+            elapsed / 3000,
+            1
+        );
+
+
+    progress.style.width =
+        `${percent * 100}%`;
+
+
+    if (percent >= 1) {
+
+        confirmInvitation();
+
+        return;
+
+    }
+
+
+    animationFrame =
+        requestAnimationFrame(
+            updateProgress
+        );
+
+}
+
+
+
+/* отпустила */
+
+function stopHold() {
+
+    if (confirmed)
+        return;
+
+
+    cancelAnimationFrame(
+        animationFrame
+    );
+
+
+    progress.style.width =
+        "0%";
+
+
+    status.textContent =
+        "Почти! Удерживай все 3 секунды 😊";
+
+
+    fingerprint.style.boxShadow =
+        "0 0 0 rgba(232,93,131,0)";
+
+}
+
+
+
+/* события */
+
+fingerprint.addEventListener(
+    "pointerdown",
+    startHold
+);
+
+
+fingerprint.addEventListener(
+    "pointerup",
+    stopHold
+);
+
+
+fingerprint.addEventListener(
+    "pointercancel",
+    stopHold
+);
+
+
+fingerprint.addEventListener(
+    "pointerleave",
+    stopHold
+);
+
+
+
+/* ===================================
+   ПОДТВЕРЖДЕНИЕ
+=================================== */
+
+function confirmInvitation() {
+
+    confirmed = true;
+
+
+    cancelAnimationFrame(
+        animationFrame
+    );
+
+
+    progress.style.width =
+        "100%";
+
+
+    status.textContent =
+        "Подтверждено 💖";
+
+
+    document
+        .getElementById("success")
+        .classList
+        .remove("hidden");
+
+
+    fingerprint.style.boxShadow =
+        "0 0 0 18px rgba(232,93,131,0.18)";
+
+
+    /*
+       ВИБРАЦИЯ
+    */
+
+    if (
+        navigator.vibrate
+    ) {
+
+        navigator.vibrate([
+            120,
+            60,
+            180,
+            80,
+            240,
+            80,
+            320
+        ]);
+
+    }
+
+
+    /*
+       КОНФЕТТИ
+    */
+
+    createConfetti();
+
+
+    /*
+       СЕРДЕЧКИ
+    */
+
+    createHearts();
+
+
+    /*
+       TELEGRAM
+    */
+
+    sendNotification();
+
+
+    /*
+       Небольшая задержка,
+       чтобы сначала пошёл
+       эффект конфетти.
+    */
+
+    setTimeout(
+        () => {
+
+            document
+                .getElementById(
+                    "celebration"
+                )
+                .classList
+                .add("show");
+
+        },
+        500
+    );
+
+}
+
+
+
+/* ===================================
+   TELEGRAM УВЕДОМЛЕНИЕ
+=================================== */
+
+function sendNotification() {
+
+    /*
+       Если URL ещё не вставлен —
+       просто ничего не делаем.
+    */
+
+    if (
+        !NOTIFICATION_URL ||
+        NOTIFICATION_URL.includes(
+            "ВСТАВЬ_СЮДА"
+        )
+    ) {
+
+        console.log(
+            "Telegram notification is not configured."
+        );
+
+        return;
+
+    }
+
+
+    const data =
+        new URLSearchParams();
+
+
+    data.append(
+        "confirmed",
+        "true"
+    );
+
+
+    data.append(
+        "page",
+        window.location.href
+    );
+
+
+    fetch(
+        NOTIFICATION_URL,
+        {
+
+            method: "POST",
+
+            body: data
+
+        }
+    )
+
+    .then(
+        () => {
+
+            console.log(
+                "Confirmation sent."
+            );
+
+        }
+    )
+
+    .catch(
+        error => {
+
+            console.error(
+                "Notification error:",
+                error
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ===================================
+   КОНФЕТТИ
+=================================== */
+
+function createConfetti() {
+
+    const canvas =
+        document.getElementById(
+            "confetti"
+        );
+
+
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
+
+
+    canvas.width =
+        window.innerWidth;
+
+
+    canvas.height =
+        window.innerHeight;
+
+
+    const pieces = [];
+
+
+    for (
+        let i = 0;
+        i < 220;
+        i++
+    ) {
+
+        pieces.push({
+
+            x:
+                canvas.width / 2,
+
+            y:
+                canvas.height / 2,
+
+            vx:
+                (Math.random() - 0.5) * 18,
+
+            vy:
+                (Math.random() - 0.8) * 18,
+
+            size:
+                4 +
+                Math.random() * 7,
+
+            rotation:
+                Math.random() * 6,
+
+            gravity:
+                0.2 +
+                Math.random() * 0.3
+
+        });
+
+    }
+
+
+    let frame = 0;
+
+
+    function animate() {
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        pieces.forEach(
+            piece => {
+
+                piece.x +=
+                    piece.vx;
+
+
+                piece.vy +=
+                    piece.gravity;
+
+
+                piece.y +=
+                    piece.vy;
+
+
+                piece.rotation +=
+                    0.1;
+
+
+                ctx.save();
+
+
+                ctx.translate(
+                    piece.x,
+                    piece.y
+                );
+
+
+                ctx.rotate(
+                    piece.rotation
+                );
+
+
+                ctx.fillStyle =
+                    `hsl(
+                        ${Math.random() * 360},
+                        80%,
+                        65%
+                    )`;
+
+
+                ctx.fillRect(
+
+                    -piece.size / 2,
+
+                    -piece.size / 2,
+
+                    piece.size,
+
+                    piece.size
+
+                );
+
+
+                ctx.restore();
+
+            }
+        );
+
+
+        frame++;
+
+
+        if (frame < 220) {
+
+            requestAnimationFrame(
+                animate
+            );
+
+        }
+        else {
+
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+        }
+
+    }
+
+
+    animate();
+
+}
+
+
+
+/* ===================================
+   СЕРДЕЧКИ
+=================================== */
+
+function createHearts() {
+
+    const emojis = [
+
+        "💗",
+        "💕",
+        "💖",
+        "💘",
+        "✨",
+        "♥"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "heart";
+
+
+        heart.textContent =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+
+        heart.style.left =
+            `${5 + Math.random() * 90}vw`;
+
+
+        heart.style.animationDuration =
+            `${3 + Math.random() * 3}s`;
+
+
+        heart.style.animationDelay =
+            `${Math.random() * 0.8}s`;
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            () => {
+
+                heart.remove();
+
+            },
+            6500
+        );
+
+    }
+
+}
+
+
+
+/* ===================================
+   ЗАКРЫТИЕ ФИНАЛА
+=================================== */
+
+function closeCelebration() {
+
+    document
+        .getElementById(
+            "celebration"
+        )
+        .classList
+        .remove("show");
+
+}
+
+
+
+/* ===================================
+   RESIZE
+=================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        const canvas =
+            document.getElementById(
+                "confetti"
+            );
+
+
+        canvas.width =
+            window.innerWidth;
+
+
+        canvas.height =
+            window.innerHeight;
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
